@@ -2,6 +2,7 @@
 
 const restify = require('restify')
 const foo = require('../modules/foo/handlers/apiHandlers')
+const configs = require('../infra/configs/globalConfig')
 
 const app = (port,listen) => {
     let server = restify.createServer()
@@ -21,7 +22,10 @@ const app = (port,listen) => {
     server.use(restify.plugins.bodyParser())
     server.use(restify.plugins.queryParser())
 
-    server.post('/',foo.fooHandler)
+    server.post('/',foo.postUser)
+    server.get('/lol',(req, res, next) => {
+        res.send(JSON.stringify(configs.getDevelopmentMysql))
+    })
 
     server.listen(port,listen())
 }

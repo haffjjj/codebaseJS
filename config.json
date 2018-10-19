@@ -2,10 +2,11 @@
     "PORT":9000,
     "ENVIRONMENT": "DEVELOPMENT",
     "DEVELOPMENT_MYSQL_DATABASE_CONFIG": {
-        "connectionLimit": "100",
+        "connectionLimit": "80",
         "host": "localhost",
-        "user": "root",
-        "password": "12344321",
-        "database": "mockup"
+        "user": "root", 
+        "password": "",
+        "database": "test",
+        "port": "3307"
     }
 }

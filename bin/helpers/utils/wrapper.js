@@ -2,9 +2,10 @@ const errors = require('restify-errors')
 
 const errorRest = errors
 
-const error = (message = null, data = null, description = null)=>{
+const error = (httpErr = null,message = null, data = null, description = null)=>{
     return {
         err: true,
+        httpErr,
         data,
         message,
         description

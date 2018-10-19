@@ -11,22 +11,28 @@ const validateConstraints = (payload, constraints) => {
         return wrapper.success()
     }
     else{
-        return wrapper.error('data is not appropriate', res)
+        return wrapper.error(new wrapper.errorRest.BadRequestError('data is not appropriate'), res)
     }
 
 }
 
-const validateFoo = (payload) => {
+const postUser = (payload) => {
     let constraints = {
+        username: {
+            presence: true
+        },
         email: {
             email: true,
             presence: true
-        }
+        },
+        password: {
+            presence: true
+        },
     }
 
     return validateConstraints(payload, constraints)
 }
 
 module.exports = {
-    validateFoo
+    postUser
 }
