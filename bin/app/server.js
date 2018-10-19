@@ -1,13 +1,14 @@
 'use strict'
 
 const restify = require('restify')
+const jwtHelper = require('../auth/jwtHelper')
+
 const foo = require('../modules/foo/handlers/apiHandlers')
-const configs = require('../infra/configs/globalConfig')
 
 const app = (port,listen) => {
     let server = restify.createServer()
 
-    //cors setting
+    /* cors setting */
     let cors = (req,res,next) => {
         res.header("Access-Control-Allow-Origin", "*")
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
@@ -22,10 +23,17 @@ const app = (port,listen) => {
     server.use(restify.plugins.bodyParser())
     server.use(restify.plugins.queryParser())
 
-    server.post('/users',foo.postUser)
-    server.get('/users',foo.getUsers)
-
     server.listen(port,listen())
+
+
+    /* routes */
+
+    server.post('/users/signin', foo.signIn)
+    server.post('/users', foo.postUser)
+    server.get('/users', jwtHelper.authenticated, foo.getUsers)
+    
+    /* end routes */
+
 }
 
 module.exports = app

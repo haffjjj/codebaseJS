@@ -1,6 +1,7 @@
 {
     "PORT":9000,
     "ENVIRONMENT": "DEVELOPMENT",
+    "JWT_SECRET": "c6cde28c-c727-11e8-a8d5-f2801f1b9fd1",
     "DEVELOPMENT_MYSQL_DATABASE_CONFIG": {
         "connectionLimit": "80",
         "host": "localhost",

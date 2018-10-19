@@ -4,6 +4,22 @@ const validate = require('../utils/validate')
 const wrapper = require('../../../helpers/utils/wrapper')
 const commandHandler = require('../repositories/commands/commandHandler')
 const queryHandler = require('../repositories/queries/queryHandler')
+const jwt = require('../../../auth/jwtHelper')
+
+const signIn = (req, res, next) => {
+    const sendResponse = () =>{
+
+        let data = {
+            id: 99
+        }
+
+        let generateToken = jwt.generateToken(data)
+
+        res.send(wrapper.response({ token: generateToken }))
+    }
+
+    return sendResponse()
+}
 
 const postUser = (req, res, next) => {
 
@@ -24,11 +40,12 @@ const postUser = (req, res, next) => {
                 next(result.httpErr)
             }
             else{
-                //if res not err
+                //if result not err
                 res.send(wrapper.response(payload, { id: result.data.insertId }))
             }
         }
     }
+
     return sendResponse()
 }
 
@@ -41,7 +58,7 @@ const getUsers = (req, res, next) => {
             next(result.httpErr)
         }
         else{
-            //if res not err
+            //if result not err
             res.send(wrapper.response(result.data))
         }
     }
@@ -51,5 +68,6 @@ const getUsers = (req, res, next) => {
 
 module.exports = {
     postUser,
-    getUsers
+    getUsers,
+    signIn
 }

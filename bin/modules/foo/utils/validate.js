@@ -45,3 +45,5 @@ const postUser = (payload) => {
 module.exports = {
     postUser
 }
+
+/* This validation using validatejs, you can read documentation in https://validatejs.org/ */
