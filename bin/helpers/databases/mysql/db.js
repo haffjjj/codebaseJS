@@ -31,7 +31,7 @@ const query = (query, values = []) => {
                         reject(wrapper.error(new wrapper.errorRest.InternalServerError('Database errors')))
                     }
                     else{
-                        resolve(wrapper.success(res))
+                        resolve(wrapper.success('query success',res))
                     }
                 })
             }
