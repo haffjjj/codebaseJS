@@ -17,11 +17,10 @@ const postUser = async (payload) => {
             ]
         ]
 
-        let result = await db.query(query, values)
-        return wrapper.success(result)
+        return await db.query(query, values)
     }
     catch(err){
-        return wrapper.error(new wrapper.errorRest.InternalServerError())
+        return err
     }
 
 }

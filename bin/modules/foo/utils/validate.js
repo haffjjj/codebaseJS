@@ -11,7 +11,7 @@ const validateConstraints = (payload, constraints) => {
         return wrapper.success()
     }
     else{
-        return wrapper.error(new wrapper.errorRest.BadRequestError('data is not appropriate'), res)
+        return wrapper.error(new wrapper.errorRest.BadRequestError('Data is not appropriate'), res)
     }
 
 }
