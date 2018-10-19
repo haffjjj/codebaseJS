@@ -1,9 +1,8 @@
 'use strict'
 
 const db = require('../../../../helpers/databases/mysql/db')
-const wrapper = require('../../../../helpers/utils/wrapper')
 
-const postUser = async (payload) => {
+const postUser = async (data) => {
 
     try{
 
@@ -11,8 +10,9 @@ const postUser = async (payload) => {
         let values = [
             [
                 [
-                    payload.username,
-                    payload.email
+                    data.username,
+                    data.email,
+                    data.password
                 ]
             ]
         ]

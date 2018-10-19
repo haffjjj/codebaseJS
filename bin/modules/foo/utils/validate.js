@@ -19,14 +19,23 @@ const validateConstraints = (payload, constraints) => {
 const postUser = (payload) => {
     let constraints = {
         username: {
-            presence: true
+            presence: true,
+            length: {
+                minimum: 1
+            }
         },
         email: {
             email: true,
-            presence: true
+            presence: true,
+            length: {
+                minimum: 1
+            }
         },
         password: {
-            presence: true
+            presence: true,
+            length: {
+                minimum: 1
+            }
         },
     }
 

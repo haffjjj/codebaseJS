@@ -1,11 +1,12 @@
 'use strict'
 
 const models = {
-    postUsers: {
-        username: '',
-        email: '',
-        password: ''
-    }
+    users: {
+        id: String,
+        username: String,
+        email: String,
+        password: String
+    },
 }
 
 module.exports = models

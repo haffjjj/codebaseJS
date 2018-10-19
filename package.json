@@ -1,7 +1,7 @@
 {
   "name": "codexcode",
   "version": "0.1",
-  "description": "codex codebase",
+  "description": "codex codebase, inspired by telkom dev codebase",
   "main": "index.js",
   "author": "haffjjj",
   "license": "MIT",

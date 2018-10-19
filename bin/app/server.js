@@ -22,10 +22,8 @@ const app = (port,listen) => {
     server.use(restify.plugins.bodyParser())
     server.use(restify.plugins.queryParser())
 
-    server.post('/',foo.postUser)
-    server.get('/lol',(req, res, next) => {
-        res.send(JSON.stringify(configs.getDevelopmentMysql))
-    })
+    server.post('/users',foo.postUser)
+    server.get('/users',foo.getUsers)
 
     server.listen(port,listen())
 }

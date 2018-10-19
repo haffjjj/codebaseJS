@@ -21,8 +21,15 @@ const success = (message = null, data = null, description = null)=>{
     }
 }
 
+const response = (data, extra = {}) => {
+    let combine = Object.assign(data, extra)
+
+    return combine
+}
+
 module.exports = {
     error,
     success,
-    errorRest
+    errorRest,
+    response
 }
